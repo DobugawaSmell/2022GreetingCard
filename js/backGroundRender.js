@@ -8,6 +8,11 @@ let OPACITY = 0.9;
 let TRANS = true;
 let DEPTH_TEST = false;
 
+//カメライージング
+let camX_easing = 0;
+let camY_easing = -300;
+let camZ_easing = 0;
+
 //3D用変数
 const radian = 1000;
 let leftTime = 0;
@@ -33,7 +38,7 @@ function ThreeInit() {
   
     // カメラを作成
     const camera = new THREE.PerspectiveCamera(45, width / height);
-    camera.position.set(0, 215, radian);
+    camera.position.set(camX_easing, camY_easing, camZ_easing);
     camera.rotation.set(0.8,0,0);
 
     // const controls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -49,7 +54,8 @@ function ThreeInit() {
             model = gltf.scene;
             // model.name = "model_with_cloth";
             model.scale.set(200.0, 200.0, 200.0);
-            model.position.set(0, -300, 0);
+            model.position.set(0, 0, 0);
+            model.rotation.set(0,40,0);
             scene.add(model);
 
             // model["test"] = 100;
@@ -74,11 +80,16 @@ function ThreeInit() {
       leftTime += 0.005;
       let posX = radian * Math.sin(leftTime);
       let posZ = radian * Math.cos(leftTime);
+
+      camX_easing += (posX - camX_easing) * 0.1;
+      camY_easing += (485 - camY_easing) * 0.1;
+      camZ_easing += (posZ - camZ_easing) * 0.1;
         
-        camera.position.x = posX;
-        camera.position.y = 185;
-        camera.position.z = posZ;
-      camera.lookAt(new THREE.Vector3(0,0,0));
+        camera.position.x = camX_easing;
+        camera.position.y = camY_easing;
+        camera.position.z = camZ_easing;
+
+      camera.lookAt(new THREE.Vector3(0,300,0));
       renderer.render(scene, camera); // レンダリング
   
       requestAnimationFrame(tick);
