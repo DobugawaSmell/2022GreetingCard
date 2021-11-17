@@ -44,8 +44,8 @@ function Resize() {
 function CamAction()
 {
   radian = Math.random() * 1500;
-  leftTime += Math.random() * 200;
-  posY = Math.random() * 300 + 200;
+  leftTime += Math.random() * -200;
+  posY = Math.random() * 100 + 400;
 }
 
 function ThreeInit() 
