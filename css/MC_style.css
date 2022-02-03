@@ -79,9 +79,9 @@ body{
 }
 
 #logo{
-    width: 250px;
+    width: 320px;
     position: absolute;
-    top: 23%;
+    top: 20%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
