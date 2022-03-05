@@ -108,6 +108,11 @@ body{
 }
 
 @media screen and (max-width: 1000px){
+    h3{
+        font-weight: 200;
+        font-size: 2.5rem;
+    }
+
     #contentWrap{
         overflow: hidden;
         width: 100vw;
@@ -138,6 +143,16 @@ body{
         left: 50%;
         margin-right: -50%;
         transform: translate(-50%, -50%);
+    }
+
+    #logo{
+        width: 80vw;
+        position: absolute;
+        top: 26%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        fill: #DD3636;
     }
     
     #textWrap{
